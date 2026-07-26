@@ -9,7 +9,10 @@ header { text-align: center; letter-spacing: .04em; }
 h1 { margin: 0; color: #f4e8a9; font-size: 15px; font-weight: 500; letter-spacing: .25em; text-transform: lowercase; opacity: .88; }
 #status { min-height: 18px; margin: 9px 0 0; font-size: 12px; color: #aab7cf; }
 .controls { width: min(100%, 440px); padding-bottom: 2px; }
-.moods { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 5px 4px; width: 100%; margin-bottom: 18px; padding: 3px 0; }
+.mood-hint { margin: 0 0 4px; color: #8593aa; font-size: 9px; letter-spacing: .12em; text-align: center; text-transform: uppercase; }
+.moods { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 5px 4px; width: 100%; max-height: min(42dvh, 310px); margin-bottom: 14px; padding: 3px 4px 12px 0; overflow-y: auto; overscroll-behavior: contain; scrollbar-color: #7183a855 transparent; scrollbar-width: thin; mask-image: linear-gradient(to bottom, #000 0, #000 calc(100% - 18px), transparent 100%); }
+.moods::-webkit-scrollbar { width: 3px; }
+.moods::-webkit-scrollbar-thumb { border-radius: 3px; background: #7183a855; }
 button { min-width: 44px; min-height: 44px; border: 0; color: #bdc7d8; background: transparent; font: inherit; cursor: pointer; }
 .moods button { width: 100%; display: grid; place-items: center; gap: 3px; padding: 1px 4px; font-size: 10px; }
 .moods i { width: 12px; height: 12px; border: 1px solid #8291aa; border-radius: 50%; background: #17233a; transition: .25s ease; }
@@ -29,7 +32,7 @@ button { min-width: 44px; min-height: 44px; border: 0; color: #bdc7d8; backgroun
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; } }
 @media (max-height: 620px) {
   main { padding-top: max(16px, env(safe-area-inset-top)); padding-bottom: max(12px, env(safe-area-inset-bottom)); }
-  .moods { gap: 1px 4px; margin-bottom: 10px; }
+  .moods { max-height: 34dvh; gap: 1px 4px; margin-bottom: 8px; }
   .moods button { min-height: 38px; }
   #play { width: 72px; height: 72px; }
   .transport { grid-template-columns: 1fr 72px 1fr; }
