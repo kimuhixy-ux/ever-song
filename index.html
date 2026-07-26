@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+  <meta name="theme-color" content="#071225">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="EverSong">
+  <link rel="manifest" href="./manifest.json">
+  <link rel="apple-touch-icon" href="./icons/icon-192.png">
+  <link rel="stylesheet" href="./style.css">
+  <title>EverSong</title>
+</head>
+<body>
+  <canvas id="visual" aria-hidden="true"></canvas>
+  <main>
+    <header><h1>ever song</h1><p id="status" aria-live="polite"></p></header>
+    <section class="controls" aria-label="Music controls">
+      <div class="moods" aria-label="Mood">
+        <button data-mood="calm" aria-pressed="false"><i></i>Calm</button>
+        <button data-mood="night" aria-pressed="true"><i></i>Night</button>
+        <button data-mood="jazz" aria-pressed="false"><i></i>Jazz</button>
+        <button data-mood="upbeat" aria-pressed="false"><i></i>Upbeat</button>
+      </div>
+      <div class="transport">
+        <button id="mutate" aria-label="Mutate next phrase"><span>⚄</span> mutate</button>
+        <button id="play" aria-label="Play music"><span>▶</span></button>
+        <div class="spacer"></div>
+      </div>
+    </section>
+  </main>
+  <div id="toast" role="status">No sound? Check your device’s silent switch.</div>
+  <script type="module" src="./js/main.js"></script>
+</body>
+</html>
