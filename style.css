@@ -9,10 +9,9 @@ header { text-align: center; letter-spacing: .04em; }
 h1 { margin: 0; color: #f4e8a9; font-size: 15px; font-weight: 500; letter-spacing: .25em; text-transform: lowercase; opacity: .88; }
 #status { min-height: 18px; margin: 9px 0 0; font-size: 12px; color: #aab7cf; }
 .controls { width: min(100%, 440px); padding-bottom: 2px; }
-.moods { display: flex; gap: 5px; margin: 0 calc(-1 * max(20px, env(safe-area-inset-left))) 22px; padding: 5px max(20px, env(safe-area-inset-right)) 7px max(20px, env(safe-area-inset-left)); overflow-x: auto; overscroll-behavior-x: contain; scrollbar-width: none; scroll-snap-type: x proximity; }
-.moods::-webkit-scrollbar { display: none; }
+.moods { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 5px 4px; width: 100%; margin-bottom: 18px; padding: 3px 0; }
 button { min-width: 44px; min-height: 44px; border: 0; color: #bdc7d8; background: transparent; font: inherit; cursor: pointer; }
-.moods button { flex: 0 0 58px; display: grid; place-items: center; gap: 6px; padding: 2px 7px; font-size: 11px; scroll-snap-align: center; }
+.moods button { width: 100%; display: grid; place-items: center; gap: 3px; padding: 1px 4px; font-size: 10px; }
 .moods i { width: 12px; height: 12px; border: 1px solid #8291aa; border-radius: 50%; background: #17233a; transition: .25s ease; }
 .moods button.selected { color: #f4e8a9; }
 .moods button.selected i { border-color: #f4e8a9; background: #f4e8a9; box-shadow: 0 0 18px #f4e8a988; transform: scale(1.2); }
@@ -28,3 +27,10 @@ button { min-width: 44px; min-height: 44px; border: 0; color: #bdc7d8; backgroun
 #toast { position: fixed; z-index: 4; left: 50%; bottom: calc(130px + env(safe-area-inset-bottom)); width: max-content; max-width: calc(100% - 40px); padding: 10px 14px; border: 1px solid #aab7cf33; border-radius: 20px; background: #071225dc; color: #c8d0df; font-size: 11px; opacity: 0; transform: translate(-50%, 8px); pointer-events: none; transition: .35s; }
 #toast.show { opacity: 1; transform: translate(-50%, 0); }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; } }
+@media (max-height: 620px) {
+  main { padding-top: max(16px, env(safe-area-inset-top)); padding-bottom: max(12px, env(safe-area-inset-bottom)); }
+  .moods { gap: 1px 4px; margin-bottom: 10px; }
+  .moods button { min-height: 38px; }
+  #play { width: 72px; height: 72px; }
+  .transport { grid-template-columns: 1fr 72px 1fr; }
+}
