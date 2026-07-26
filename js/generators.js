@@ -33,7 +33,7 @@ export class MusicGenerator {
 
   bass(step, time, beat) {
     const root = 36 + ((this.chord.root - 36) % 12 + 12) % 12; const fifth = root + 7;
-    const style = this.state.moodKey === "calm" ? 0 : this.state.moodKey === "night" ? (Math.random() < 0.5 ? 0 : 1) : 2;
+    const style = { whole: 0, half: 1, walk: 2 }[this.state.mood.bassPattern] ?? 1;
     if (step === 0) this.synth.bass(root, time, style === 0 ? beat * 3.8 : style === 1 ? beat * 1.9 : beat * 0.9);
     if (style === 1 && step === 8) this.synth.bass(fifth, time, beat * 1.8);
     if (style === 2 && [4, 8, 12].includes(step)) this.synth.bass(step === 8 ? root + 12 : fifth, time, beat * 0.82);
