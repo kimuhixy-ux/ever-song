@@ -1,5 +1,5 @@
-const CACHE = "ever-song-v3";
-const ASSETS = ["./", "./index.html", "./style.css", "./manifest.json", "./icons/icon-192.png", "./icons/icon-512.png", "./js/main.js", "./js/scheduler.js", "./js/theory.js", "./js/generators.js", "./js/synth.js", "./js/moods.js", "./js/visual.js"];
+const CACHE = "ever-song-v4";
+const ASSETS = ["./", "./index.html", "./about.html", "./privacy.html", "./style.css", "./manifest.json", "./icons/icon-192.png", "./icons/icon-512.png", "./js/main.js", "./js/scheduler.js", "./js/theory.js", "./js/generators.js", "./js/synth.js", "./js/moods.js", "./js/visual.js", "./js/config.js", "./js/donate.js", "./js/ads.js"];
 self.addEventListener("install", (event) => event.waitUntil(caches.open(CACHE).then((cache) => cache.addAll(ASSETS)).then(() => self.skipWaiting())));
 self.addEventListener("activate", (event) => event.waitUntil(caches.keys().then((keys) => Promise.all(keys.filter((key) => key !== CACHE).map((key) => caches.delete(key)))).then(() => self.clients.claim())));
 self.addEventListener("fetch", (event) => {

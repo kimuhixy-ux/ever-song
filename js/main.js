@@ -4,6 +4,8 @@ import { Synth } from "./synth.js";
 import { Scheduler } from "./scheduler.js";
 import { MusicGenerator } from "./generators.js";
 import { Visualizer } from "./visual.js";
+import { renderDonateLink } from "./donate.js";
+import { initAds } from "./ads.js";
 
 const playButton = document.querySelector("#play");
 const mutateButton = document.querySelector("#mutate");
@@ -97,4 +99,5 @@ document.addEventListener("visibilitychange", async () => {
 });
 
 selectMood(initialMoodKey); updateStatus();
+renderDonateLink(); initAds();
 if ("serviceWorker" in navigator) addEventListener("load", () => navigator.serviceWorker.register("./sw.js"));
